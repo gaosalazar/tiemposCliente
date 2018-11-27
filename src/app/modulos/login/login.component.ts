@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from 'src/app/servicios/usuario/usuario.service';
 import { Usuario } from 'src/app/clases/usuario';
+import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-login',
@@ -11,10 +12,17 @@ export class LoginComponent implements OnInit {
 
   usuario: Usuario = { nombre: 'gabriel', password: '12345' }
 
-  constructor(private usuarioService: UsuarioService) { }
+  images = [
+    '../assets/images/action-automotive-car-279949.jpg',
+    '../assets/images/attractive-automobile-bag-1399282.jpg',
+    '../assets/images/pexels-photo-97079.jpeg',
+
+  ]
+
+  constructor(private usuarioService: UsuarioService, private titleService: Title, private meta: Meta) { }
 
   ngOnInit() {
-
+    this.titleService.setTitle('Eficar - Login')
 
   }
 

@@ -26,8 +26,8 @@ export class ApiService {
 
   get(endpoint: string, parametros: any) {
     var params = new HttpParams()
-    for (let k in params) {
-      params.set(k, params[k]);
+    for (let k in parametros) {
+     params =  params.set(k, parametros[k]);
     }
 
     return this.http.get(this.url + endpoint, { headers: this.getHeader(localStorage.getItem('token')), params: params });
