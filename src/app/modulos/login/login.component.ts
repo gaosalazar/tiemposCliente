@@ -19,7 +19,9 @@ export class LoginComponent implements OnInit {
 
   ]
 
-  constructor(private usuarioService: UsuarioService, private titleService: Title, private meta: Meta) { }
+  constructor(private usuarioService: UsuarioService, private titleService: Title, private meta: Meta) {
+    this.titleService.setTitle('Eficar - Login')
+  }
 
   ngOnInit() {
     this.titleService.setTitle('Eficar - Login')
