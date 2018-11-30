@@ -5,6 +5,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 const routes: Routes = [
   { path: '', loadChildren: './modulos/inicio/inicio.module#InicioModule' },
   { path: 'login', loadChildren: './modulos/login/login.module#LoginModule' },
+  { path: 'sistema', loadChildren: './modulos/sistema/sistema.module#SistemaModule'},
 ];
 
 @NgModule({

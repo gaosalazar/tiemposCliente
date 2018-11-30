@@ -2,62 +2,69 @@
   <div class="container">
     <div class="row">
       <div class="col-md-4 login-sec">
-          <img src="../assets/images/LOGO.png" width="100%" alt="">
+        <img src="../assets/images/LOGO.png" width="100%" alt="">
         <h2 class="text-center"></h2>
-       
-        <div class="login-form">
+
+        <form [formGroup]="formulario" class="login-form" (ngSubmit)="iniciarSesion()">
           <div class="form-group">
             <label for="exampleInputEmail1" class="text-uppercase">Nombre de usuario</label>
-            <input type="text" autofocus class="form-control" placeholder="">
+            <input type="text" autofocus formControlName="nombre" class="form-control" placeholder="">
 
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1" class="text-uppercase">Contraseña</label>
-            <input type="password" class="form-control" placeholder="">
+            <input type="password" formControlName="password" class="form-control" placeholder="">
           </div>
 
-          <div class="form-group">
-              <label for="select" class="text-uppercase">Seleccionar empresa</label>
-              <select name="" id="select" class="form-control">
-                <option value="">sd</option>
-              </select>
-            </div>
+
 
 
           <div class="form-check">
-           
+
             <button type="submit" class="btn btn-login float-right">Iniciar sesión</button>
-   
+
           </div>
 
+        </form>
+
+        <br><br>
+
+        <div *ngIf="empresas.length>0" class="form-group">
+          <label for="empresas">Seleccionar empresa</label>
+          <select id="empresas" class="form-control" [(ngModel)]="empresa_seleccionada" (change)="seleccionarEmpresa()">
+            <option *ngFor="let empresa of empresas" value="{{empresa.id}}">{{empresa.nombre}}</option>
+          </select>
         </div>
+       
+
         <div class="copy-text"> <a href="http://grafreez.com">¿No puede acceder a su cuenta?</a></div>
+
       </div>
       <div class="col-md-8 banner-sec">
-        
+
         <ngb-carousel *ngIf="images">
-              <ng-template ngbSlide>
-                <img style="width: 900px; height: 500px" [src]="images[0]" alt="Random first slide">
-                <div class="carousel-caption">
-                  <h3>First slide label</h3>
-                  <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                </div>
-              </ng-template>
-              <ng-template ngbSlide>
-                <img style="width: 900px; height: 500px" [src]="images[1]" alt="Random second slide">
-                <div class="carousel-caption">
-                  <h3>Second slide label</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-              </ng-template>
-              <ng-template ngbSlide>
-                <img style="width: 900px; height: 500px" [src]="images[2]" alt="Random third slide">
-                <div class="carousel-caption">
-                  <h3>Third slide label</h3>
-                  <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                </div>
-              </ng-template>
-            </ngb-carousel>
+          <ng-template ngbSlide>
+            <img style="width: 900px; height: 500px" [src]="images[0]" alt="Random first slide">
+            <div class="carousel-caption">
+              <h3>First slide label</h3>
+              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            </div>
+          </ng-template>
+          <ng-template ngbSlide>
+            <img style="width: 900px; height: 500px" [src]="images[1]" alt="Random second slide">
+            <div class="carousel-caption">
+              <h3>Second slide label</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+          </ng-template>
+          <ng-template ngbSlide>
+            <img style="width: 900px; height: 500px" [src]="images[2]" alt="Random third slide">
+            <div class="carousel-caption">
+              <h3>Third slide label</h3>
+              <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+            </div>
+          </ng-template>
+        </ngb-carousel>
       </div>
     </div>
   </div>
